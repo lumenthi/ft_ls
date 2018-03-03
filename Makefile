@@ -6,7 +6,7 @@
 #    By: lumenthi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/22 14:06:43 by lumenthi          #+#    #+#              #
-#    Updated: 2018/02/23 15:30:43 by lumenthi         ###   ########.fr        #
+#    Updated: 2018/03/03 10:48:21 by lumenthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ SOURCES = $(addprefix $(SRCDIR)/, $(SRCS))
 INCLUDES = $(addprefix -I, $(INCDIR))
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 
-BLUE = '\033[4;34m'
 GREEN = '\033[4;32m'
 RED = '\033[4;31m'
 BLANK = '\033[0m'
@@ -53,7 +52,7 @@ YELLOW = '\033[4;33m'
 TICK = '\033[1;32m~\033[0m'
 CROSS = '\033[1;31mx\033[0m'
 
-.PHONY : all clean fclean re debug
+.PHONY : all clean fclean re
 
 all: $(NAME)
 
@@ -93,11 +92,5 @@ fclean: clean
 	printf "Removed %b%b%b executable\n" $(RED) $(NAME) $(BLANK) \
 	|| (printf " %b | " $(CROSS) && \
 	printf "No %b%b%b executable\n" $(RED) $(NAME) $(BLANK))
-
-debug: fclean $(OBJS)
-	@ make -s -C $(LIBDIR)
-	@ $(CC) $(LIBFT) $(SOURCES) $(FLAGS) -ggdb3 -g -o $(NAME)
-	@ printf " %b | " $(TICK) && \
-	printf "Compiled debug version of: %b%b%b\n" $(BLUE) $(NAME) $(BLANK)
 
 re: fclean all

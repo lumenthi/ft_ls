@@ -6,7 +6,7 @@
 /*   By: lumenthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 10:01:59 by lumenthi          #+#    #+#             */
-/*   Updated: 2018/02/23 10:54:28 by lumenthi         ###   ########.fr       */
+/*   Updated: 2018/03/03 11:02:04 by lumenthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void					separate(char *full, char **path, char **single);
 void					make_path2(char **argv, int i, char **path);
 char					*sp_si(int str1, int str2);
 int						ferror(t_file *file, char **new_path, t_stat **stats);
+void					error_del(t_file **single_file);
 
 #endif

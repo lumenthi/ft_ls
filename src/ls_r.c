@@ -6,7 +6,7 @@
 /*   By: lumenthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 14:00:40 by lumenthi          #+#    #+#             */
-/*   Updated: 2018/02/23 11:33:34 by lumenthi         ###   ########.fr       */
+/*   Updated: 2018/03/03 11:01:03 by lumenthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_path(char **path, t_file *files)
 	char	*new_path;
 	int		root;
 
-	root = ft_strncmp(*path, "././", 4);
+	root = ft_strncmp(*path, "./.", 3);
 	new_path = (char*)ft_strnew(ft_strlen(*path) + ft_strlen(files->name) + 2);
 	new_path = ft_strcpy(new_path, *path);
 	if (ft_strcmp(*path, "./") != 0 && ft_strcmp(*path, "/") != 0)
@@ -54,4 +54,13 @@ void	r_print(char *args, t_file *files, char *path)
 		files = files->next;
 	}
 	free(tmp);
+}
+
+void	error_del(t_file **single_file)
+{
+	free((*single_file)->name);
+	free((*single_file)->group);
+	free((*single_file)->owner);
+	free((*single_file)->size);
+	free(*single_file);
 }

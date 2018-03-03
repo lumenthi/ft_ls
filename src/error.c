@@ -6,7 +6,7 @@
 /*   By: lumenthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 13:15:39 by lumenthi          #+#    #+#             */
-/*   Updated: 2018/02/26 11:07:04 by lumenthi         ###   ########.fr       */
+/*   Updated: 2018/03/03 11:01:35 by lumenthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,7 @@ int		check_error(int error, char *path)
 		if (!single_file || single_file->size == 0)
 			print_error(pathbu, error, 0);
 		else
-		{
-			free(single_file->name);
-			free(single_file->group);
-			free(single_file->owner);
-			free(single_file->size);
-			free(single_file);
-		}
+			error_del(&single_file);
 		file_del(&single_file);
 		free(tmp);
 		free(pathbu);
