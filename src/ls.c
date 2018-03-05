@@ -6,7 +6,7 @@
 /*   By: lumenthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 11:05:24 by lumenthi          #+#    #+#             */
-/*   Updated: 2018/02/27 12:12:53 by lumenthi         ###   ########.fr       */
+/*   Updated: 2018/03/05 12:04:04 by lumenthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ int		is_sym(char **p)
 
 	separate(*p, &path, &single);
 	if (!(dir = opendir(path)))
+	{
+		free(path);
+		free(single);
 		return (0);
+	}
 	while ((content = readdir(dir)))
 	{
 		if (ft_strcmp(content->d_name, single) == 0)

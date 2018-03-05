@@ -6,7 +6,7 @@
 /*   By: lumenthi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 16:21:54 by lumenthi          #+#    #+#             */
-/*   Updated: 2018/03/03 10:54:48 by lumenthi         ###   ########.fr       */
+/*   Updated: 2018/03/05 12:07:04 by lumenthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,5 @@ int		main(int argc, char **argv)
 	else
 		ft_ls(argc, argv, args, i);
 	free(args);
-	while (1);
 	return (0);
 }
